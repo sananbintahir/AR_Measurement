@@ -20,10 +20,13 @@ public class PlacementIndicator : MonoBehaviour
     private void Update()
     {
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
+        //raycast from center of the screen
         managerRay.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);
 
+        //if raycast hits
         if (hits.Count > 0)
         {
+            //update indicator's transform
             transform.position = hits[0].pose.position;
             transform.rotation = hits[0].pose.rotation;
 
